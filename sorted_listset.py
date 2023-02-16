@@ -3,11 +3,25 @@ class SortedListSet:
         self.items = []
 
     def insert(self, item):
-        # Task 3, Step 1: implement this method
-        return False
+        if item in self.items:
+            return False
+
+        # insert item into its sorted position in list
+        for idx, lst_item in enumerate(self.items):
+            if item < lst_item:
+                self.items = self.items[:idx] + [item] + self.items[idx:]
+                return True
+
+        # item is the greatest in the set
+        self.items.append(item)
+        return True
 
     def contains(self, item):
-        # Task 3, Step 2: implement this method
+        for lst_item in self.items:
+            if item < lst_item:
+                return False
+            if item == lst_item:
+                return True
         return False
 
     def delete(self, item):

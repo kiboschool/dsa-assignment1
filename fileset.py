@@ -32,12 +32,18 @@ class FileSet:
             f.write(str(lst).strip('\n'))
 
     def insert(self, item):
-        # Task 2, Step 1: implement this method
-        return False
+        lst = self.__file_to_list()
+
+        if item in lst:
+            return False
+
+        lst.append(item)
+        self.__list_to_file(lst)
+        return True
 
     def contains(self, item):
-        # Task 2, Step 2: implement this method
-        return False
+        lst = self.__file_to_list()
+        return item in lst
 
     def delete(self, item):
         lst = self.__file_to_list()

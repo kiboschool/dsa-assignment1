@@ -3,11 +3,16 @@ class ListSet:
         self.items = []
 
     def insert(self, item):
-        # Task 1, Step 1: implement this method
-        return False
+        if item in self.items:
+            return False
+
+        self.items.append(item)
+        return True
 
     def contains(self, item):
-        # Task 1, Step 2: implement this method
+        for list_item in self.items:
+            if item == list_item:
+                return True
         return False
 
     def delete(self, item):

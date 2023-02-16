@@ -25,19 +25,17 @@ else:
 
 print("Generating the set...")
 for i in range(NUM_SET_ITEMS):
-    # Task 4, Step 1
-    pass
+    s.insert(random.randint(0, ITEM_VALUE_DOMAIN))
 
 print("Generating the test cases...")
 test_samples = []
 for i in range(NUM_TESTS):
-    # Task 4, Step 2
-    pass
+    test_samples.append(random.randint(0, ITEM_VALUE_DOMAIN))
 
 print("Benchmarking contains()...")
 total_time = 0
 for sample in test_samples:
-    # Task 4, Step 3
-    total_time += timeit.timeit('pass', number=1, globals=globals())
+    total_time += timeit.timeit('s.contains(sample)', number=1, globals=globals())
 
-# Task 4, Step 4
+print('  total time (1000 calls): ' + str(total_time) + ' seconds')
+print('  average time per call: ' + str(total_time / len(test_samples)) + ' seconds')
